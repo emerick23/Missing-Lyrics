@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+    "hdr hdr"
+    "main aside"
+}
+header {
+    grid-area: hdr;
+    display: flex;
+    background-color: violet;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    background-color: teal;
+    justify-content: space-evenly;
+}
+main h3 {
+    display: flex;
+    justify-content: center;
+}
+aside {
+    grid-area: aside;
+    background-color: palevioletred;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "div1 div2"
+    "div3 div4";
+}
+#title {
+    grid-area: div1;
+    background-color: gray;
+}
+#artist {
+    grid-area: div2;
+    background-color: lavenderblush; 
+}
+#timer {
+    gird-area: div3;
+    background-color: skyblue;
+}
+#score {
+    grid-area: div4;
+    background-color: sandybrown;
+}
