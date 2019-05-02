@@ -23,17 +23,17 @@ const songCorrectAnswer = document.getElement
 function newLyric(song) {
     let lyric = song.lyrics;
     songLyric.innerHTML = lyric;
-}
+};
 
 function newTitle(song) {
     let title = song.title;
     songTitle.innerHTML = title;
-}
+};
 
 function newArtist(song) {
     let artist = song.artist;
     songArtist.innerHTML = artist;
-}
+};
 
 function render (array) {
     let nextSong = array[0]
@@ -41,5 +41,6 @@ function render (array) {
     newTitle(nextSong);
     newArtist(nextSong);
     array.shift();
-    }
+};
 
+    
