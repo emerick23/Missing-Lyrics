@@ -12,39 +12,66 @@ const song0 = new Song('Immigrant\'s Song', 'Led Zeppelin', 'I come from the lan
 const song1 = new Song('God\'s Plan', 'Drake', 'She say Do you love me? I tell her Only partly, I only love my ...', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 const songs = [song0, song1];
 /*----- app's state (variables) -----*/ 
+var answers = [];
+
 /*----- cached element references -----*/ 
-const songLyric = document.getElementsByTagName('h3')[0];
-const songTitle = document.getElementById('title');
-const songArtist = document.getElementById('artist');
-const songCorrectAnswer = document.getElement
+const songLyricEl = document.getElementsByTagName('h3')[0];
+const songTitleEl = document.getElementById('title');
+const songArtistEl = document.getElementById('artist');
+const songAnswers = document.getElementsByTagName('li');
+
 /*----- event listeners -----*/ 
 document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
-/*----- functions -----*/
 
+/*----- functions -----*/
 function newLyric(song) {
     let lyric = song.lyrics;
-    songLyric.innerHTML = lyric;
+    songLyricEl.innerHTML = lyric;
 };
 
 function newTitle(song) {
     let title = song.title;
-    songTitle.innerHTML = title;
+    songTitleEl.innerHTML = title;
 };
 
 function newArtist(song) {
     let artist = song.artist;
-    songArtist.innerHTML = artist;
+    songArtistEl.innerHTML = artist;
 };  
+
+function newWrongAnswers(song) {
+    let wrongAnswers = song.wrongAnswers;
+    wrongAnswers.forEach(function(a) {
+        answers.push(a);
+    })
+};
+
+function newCorrectAnswer(song) {
+    var x = Math.floor(Math.random() * Math.floor(4));
+    let correctAnswer = song.correctAnswer;
+    answers.splice(x, 0, correctAnswer);
+};
+
+function newAnswers(answers) {
+    songAnswers[0].textContent = answers[0];
+    songAnswers[1].textContent = answers[1];
+    songAnswers[2].textContent = answers[2];
+    songAnswers[3].textContent = answers[3];
+}
 
 function render (array) {
     let nextSong = array[0]
     newLyric(nextSong);
     newTitle(nextSong);
     newArtist(nextSong);
+    newWrongAnswers(nextSong);
+    newCorrectAnswer(nextSong);
+    newAnswers(answers);
     array.shift();
 };
 
 function handleClick() {
+    answers.length = 0;
     render(songs);
 };
 
