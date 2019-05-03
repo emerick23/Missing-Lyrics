@@ -25,10 +25,11 @@ main {
     background-color: teal;
     justify-content: space-evenly;
 }
-main h3 {
+main h3{
     display: flex;
     justify-content: center;
 }
+
 aside {
     grid-area: aside;
     background-color: palevioletred;
@@ -43,15 +44,22 @@ aside {
     grid-area: div1;
     background-color: gray;
 }
+
 #artist {
     grid-area: div2;
     background-color: lavenderblush; 
 }
+
 #timer {
     gird-area: div3;
     background-color: skyblue;
 }
+
 #score {
     grid-area: div4;
     background-color: sandybrown;
+}
+
+#btnWrapper {
+    text-align: center;
 }

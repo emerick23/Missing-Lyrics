@@ -18,6 +18,7 @@ const songTitle = document.getElementById('title');
 const songArtist = document.getElementById('artist');
 const songCorrectAnswer = document.getElement
 /*----- event listeners -----*/ 
+document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
 /*----- functions -----*/
 
 function newLyric(song) {
@@ -33,7 +34,7 @@ function newTitle(song) {
 function newArtist(song) {
     let artist = song.artist;
     songArtist.innerHTML = artist;
-};
+};  
 
 function render (array) {
     let nextSong = array[0]
@@ -43,4 +44,7 @@ function render (array) {
     array.shift();
 };
 
-    
+function handleClick() {
+    render(songs);
+};
+
