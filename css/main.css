@@ -67,3 +67,9 @@ aside {
 #btnWrapper {
     text-align: center;
 }
+
+#title, #artist, #timer, #score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

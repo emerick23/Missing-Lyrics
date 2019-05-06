@@ -22,31 +22,34 @@ const song9 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell 
 const songs = [song0, song1];
 /*----- app's state (variables) -----*/ 
 var answers = [];
-var x = Math.floor(Math.random() * Math.floor(4));
+var x;
+var score = 0;
+var count = 0;
 /*----- cached element references -----*/ 
 const songLyricEl = document.getElementsByTagName('h3')[0];
 const songTitleEl = document.getElementById('title');
 const songArtistEl = document.getElementById('artist');
 const songAnswers = document.getElementsByTagName('li');
 const ddlEl = document.getElementById('selector');
-var scoreEl = document.getElementById('score');
+const scoreEl = document.getElementById('score');
+const buttonEl = document.querySelector('button');
 /*----- event listeners -----*/ 
 document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
 
 /*----- functions -----*/
 function newLyric(song) {
     let lyric = song.lyrics;
-    songLyricEl.innerHTML = lyric;
+    songLyricEl.textContent = lyric;
 };
 
 function newTitle(song) {
     let title = song.title;
-    songTitleEl.innerHTML = title;
+    songTitleEl.textContent = title;
 };
 
 function newArtist(song) {
     let artist = song.artist;
-    songArtistEl.innerHTML = artist;
+    songArtistEl.textContent = artist;
 };  
 
 function newWrongAnswers(song) {
@@ -57,6 +60,7 @@ function newWrongAnswers(song) {
 };
 
 function newCorrectAnswer(song) {
+    x = Math.floor(Math.random() * Math.floor(4));
     let correctAnswer = song.correctAnswer;
     answers.splice(x, 0, correctAnswer);
 };
@@ -70,6 +74,9 @@ function newAnswers(answers) {
 
 function render (array) {
     let nextSong = array[0]
+    if (count > 1) {
+        checkAnswer();
+    };
     newLyric(nextSong);
     newTitle(nextSong);
     newArtist(nextSong);
@@ -80,16 +87,23 @@ function render (array) {
 };
 
 function handleClick() {
+    buttonEl.textContent = 'Next Question';
     answers.length = 0;
     render(songs);
 };
 
 function checkAnswer() {
-    const selectedEl = ddlEl.options[ddlEl.selectedIndex].value;
-    console.log(selectedEl);
+    const selectedEl = ddlEl.selectedIndex;
+    console.log('checked');
     if (selectedEl == x) {
-        return 'right';
+        score += 1;
+        scoreEl.innerHTML = `${score}/ 10 Correct`;
     } else {
-        return 'wrong';
+        score += 0;
+        scoreEl.innerHTML = `${score}/ 10 Correct`;
     }
-}
+};
+
+function counter() {
+    count = parseInt(count) + parseInt(1);
+};
