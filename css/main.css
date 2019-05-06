@@ -7,18 +7,20 @@ body {
     margin: 0;
     font-family: 'Montserrat', cursive;
     font-size: 18px;
+    background-image: url(imgs/main.jpg);
+    background-size: cover;
+    background-position: center;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 10% 90%;
     grid-template-areas: 
     "hdr hdr"
-    "main aside"
+    "aside main"
 }
 
 header {
     grid-area: hdr;
     display: flex;
-    background-color: violet;
     justify-content: center;
     align-items: center;
 }
@@ -32,7 +34,7 @@ main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    background-color: teal;
+    color: black;
     justify-content: space-evenly;
 }
 
@@ -43,11 +45,14 @@ main h3{
 
 li {
     margin: 30px 0px;
+    margin-left: 100px;
+
 }
 
 aside {
     grid-area: aside;
-    background-color: palevioletred;
+    /* background-color: palevioletred; */
+    color: black;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -66,22 +71,22 @@ select {
 
 #title {
     grid-area: div1;
-    background-color: gray;
+    /* background-color: gray; */
 }
 
 #artist {
     grid-area: div2;
-    background-color: lavenderblush; 
+    /* background-color: lavenderblush;  */
 }
 
 #result {
     gird-area: div3;
-    background-color: skyblue;
+    /* background-color: skyblue; */
 }
 
 #score {
     grid-area: div4;
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
 }
 
 #btnWrapper {
