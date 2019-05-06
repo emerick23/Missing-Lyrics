@@ -30,6 +30,10 @@ main h3{
     justify-content: center;
 }
 
+li {
+    margin: 20px;
+}
+
 aside {
     grid-area: aside;
     background-color: palevioletred;

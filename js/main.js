@@ -8,18 +8,28 @@ class Song {
         this.wrongAnswers = [wa1, wa2, wa3];
     }
 }
-const song0 = new Song('Immigrant\'s Song', 'Led Zeppelin', 'I come from the land of the ', 'ice and snow', ['colors and shapes', 'kings and queens', 'sinners and saints']);
-const song1 = new Song('God\'s Plan', 'Drake', 'She say Do you love me? I tell her Only partly, I only love my ...', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song0 = new Song('Immigrant Song', 'Led Zeppelin', '"We come from the land of the..." ', 'ice and snow', ['colors and shapes', 'kings and queens', 'sinners and saints']);
+const song1 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song2 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song3 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song4 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song5 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song6 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song7 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song8 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song9 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+
 const songs = [song0, song1];
 /*----- app's state (variables) -----*/ 
 var answers = [];
-
+var x = Math.floor(Math.random() * Math.floor(4));
 /*----- cached element references -----*/ 
 const songLyricEl = document.getElementsByTagName('h3')[0];
 const songTitleEl = document.getElementById('title');
 const songArtistEl = document.getElementById('artist');
 const songAnswers = document.getElementsByTagName('li');
-
+const ddlEl = document.getElementById('selector');
+var scoreEl = document.getElementById('score');
 /*----- event listeners -----*/ 
 document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
 
@@ -47,7 +57,6 @@ function newWrongAnswers(song) {
 };
 
 function newCorrectAnswer(song) {
-    var x = Math.floor(Math.random() * Math.floor(4));
     let correctAnswer = song.correctAnswer;
     answers.splice(x, 0, correctAnswer);
 };
@@ -75,3 +84,12 @@ function handleClick() {
     render(songs);
 };
 
+function checkAnswer() {
+    const selectedEl = ddlEl.options[ddlEl.selectedIndex].value;
+    console.log(selectedEl);
+    if (selectedEl == x) {
+        return 'right';
+    } else {
+        return 'wrong';
+    }
+}
