@@ -10,7 +10,7 @@ class Song {
 }
 const song0 = new Song('Immigrant Song', 'Led Zeppelin', '"We come from the land of the..." ', 'ice and snow', ['colors and shapes', 'kings and queens', 'sinners and saints']);
 const song1 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
-const song2 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
+const song2 = new Song('Smells Like Teen Spirit', 'Nirvana', '"With the lights out, its less dangerous"', 'Here we are now, entertain us', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 const song3 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 const song4 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 const song5 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
@@ -19,7 +19,7 @@ const song7 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell 
 const song8 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 const song9 = new Song('God\'s Plan', 'Drake', '"She say Do you love me? I tell her Only partly, I only love my ..."', 'bed and my mama, I\'m sorry', ['fruits and my veggies, I\'m vegan', 'couch and my Netflix, I\'m lazy', 'maple syrup and my hockey, I\'m Canadian'])
 
-const songs = [song0, song1];
+const songs = [song0, song1, song2, song3, song4, song5, song6, song7, song8, song9];
 /*----- app's state (variables) -----*/ 
 var answers = [];
 var x;
@@ -33,6 +33,7 @@ const songAnswers = document.getElementsByTagName('li');
 const ddlEl = document.getElementById('selector');
 const scoreEl = document.getElementById('score');
 const buttonEl = document.querySelector('button');
+const resultEl = document.getElementById('result');
 /*----- event listeners -----*/ 
 document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
 
@@ -94,13 +95,14 @@ function handleClick() {
 
 function checkAnswer() {
     const selectedEl = ddlEl.selectedIndex;
-    console.log('checked');
     if (selectedEl == x) {
         score += 1;
         scoreEl.innerHTML = `${score}/ 10 Correct`;
+        resultEl.textContent = 'Correct!'
     } else {
         score += 0;
         scoreEl.innerHTML = `${score}/ 10 Correct`;
+        resultEl.textContent = 'Incorrect';
     }
 };
 
