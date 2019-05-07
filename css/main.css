@@ -34,7 +34,6 @@ main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    color: black;
     justify-content: space-evenly;
 }
 
@@ -51,8 +50,6 @@ li {
 
 aside {
     grid-area: aside;
-    /* background-color: palevioletred; */
-    color: black;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -71,22 +68,18 @@ select {
 
 #title {
     grid-area: div1;
-    /* background-color: gray; */
 }
 
 #artist {
     grid-area: div2;
-    /* background-color: lavenderblush;  */
 }
 
 #result {
     gird-area: div3;
-    /* background-color: skyblue; */
 }
 
 #score {
     grid-area: div4;
-    /* background-color: sandybrown; */
 }
 
 #btnWrapper {
@@ -98,4 +91,8 @@ select {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+#titleWrap {
+    grid-area: div1;
 }
