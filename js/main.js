@@ -98,7 +98,6 @@ function handleClick() {
         buttonEl.textContent = 'Next Question';
     };
     if (count === 10) {
-        checkAnswer();
         buttonEl.textContent = 'Final Answer'
     }
     if (count === 11) {
