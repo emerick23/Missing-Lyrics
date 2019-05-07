@@ -29,6 +29,7 @@ var count = 0;
 const songLyricEl = document.getElementsByTagName('h3')[0];
 const songTitleEl = document.getElementById('title');
 const songArtistEl = document.getElementById('artist');
+const listEls = document.querySelector('ol');
 const songAnswers = document.getElementsByTagName('li');
 const ddlEl = document.getElementById('selector');
 const scoreEl = document.getElementById('score');
@@ -85,12 +86,30 @@ function render (array) {
     newCorrectAnswer(nextSong);
     newAnswers(answers);
     array.shift();
+    
 };
 
 function handleClick() {
-    buttonEl.textContent = 'Next Question';
+    if (count >= 0 && count <= 10) {
     answers.length = 0;
     render(songs);
+    };
+    if (count > 0 && count < 10) {
+        buttonEl.textContent = 'Next Question';
+    };
+    if (count === 10) {
+        checkAnswer();
+        buttonEl.textContent = 'Final Answer'
+    }
+    if (count === 11) {
+        checkAnswer();
+        listEls.style.display = 'none';
+        songLyricEl.textContent = `Thanks for playing, you got ${score} out of 10 correct! Hit the button below to play again.`;
+        buttonEl.textContent = 'Play Again';
+    }
+    if (count === 12) {
+        document.location.reload(true);
+    }
 };
 
 function checkAnswer() {
