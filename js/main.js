@@ -24,6 +24,7 @@ const songs = [song0, song1, song2, song3, song4, song5, song6, song7, song8, so
 /*----- app's state (variables) -----*/ 
 var answers = [];
 var x;
+var y = 0;
 var score = 0;
 var count = 0;
 /*----- cached element references -----*/ 
@@ -81,7 +82,7 @@ function newAnswers(answers) {
 }
 
 function render (array) {
-    let nextSong = array[0]
+    let nextSong = array[y]
     if (count > 1) {
         checkAnswer();
     };
@@ -92,7 +93,7 @@ function render (array) {
     newWrongAnswers(nextSong);
     newCorrectAnswer(nextSong);
     newAnswers(answers);
-    array.shift();
+    y += 1;
 };
 
 function handleClick() {
