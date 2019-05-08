@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Montserrat', cursive;
     font-size: 18px;
-    background-image: url(imgs/main.jpg);
+    background-image: url(../imgs/main.jpg);
     background-size: cover;
     background-position: center;
     display: grid;
