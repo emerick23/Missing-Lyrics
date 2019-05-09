@@ -14,5 +14,5 @@
 #### - CSS
 #### - Javascript
 ## Next Steps
-#### - add Spotify play button to allow players to listen to snippets of songs
+#### - add a hiscores screen
 #### - add images of albums of correct answers to final score page
