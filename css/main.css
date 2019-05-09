@@ -42,10 +42,15 @@ main h3{
 }
 
 li {
-    margin: 70px 0px;
-    margin-left: 100px;
+    margin: 0px 20px 30px 100px;
+    padding-top: 50px;
+    /* margin-left: 100px; */
     cursor: pointer;
 }
+li:last-child {
+    margin: 0px 20px 0px 100px
+}
+
 
 li:hover {
     color: white;
