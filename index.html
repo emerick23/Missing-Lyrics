@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MISSING...LYRICS</title>
-    <link href="https://fonts.googleapis.com/css?family=Monoton|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Montserrat|Voltaire" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
@@ -14,26 +14,17 @@
         <h1>Missing...Lyrics</h1>
     </header>
     <main>
-        <h3>Song lyrics will appear here with a few missing words indicated by . . . Your goal is to determine which are the correct lyrics from the selection below</h3>
+        <h3>Song lyrics will appear here with a few missing words indicated by ( . . . ) Your goal is to click the line below that contains the correct missing lyrics!</h3>
         <ol type = "A">
-            <li>You must select the letter</li>
-            <li>Of the correct answer</li>
-            <li>In the dropdown list below</li>
-            <li>Then click the button to submit</li>
+            <li onclick="handleClick();" value="1">Click any of these to begin</li>
+            <li onclick="handleClick();" value="2">Click any of these to begin</li>
+            <li onclick="handleClick();" value="3">Click any of these to begin</li>
+            <li onclick="handleClick();" value="4">Click any of these to begin</li>
         </ol>
-        <div id='btnWrapper'>
-            <select name='answer' id='selector'>
-                <option value="0">A</option>
-                <option value="1">B</option>
-                <option value="2">C</option>
-                <option value="3">D</option>
-            </select>
-            <button onclick="counter();">Start</button>
-        </div>
+        <button>Start</button>
     </main>
     <aside>
-        <div id='title'>Song Title will appear here</div>
-        <div id='artist'>Artist Name will appear here</div>
+        <div id='songInfo'>Song Title and Artist will appear here</div>
         <div id='result'>Song Instrumental will appear here</div>
         <div id='score'>Overall Score will appear here</div>
     </aside>

@@ -27,10 +27,10 @@ var x;
 var y = 0;
 var score = 0;
 var count = 0;
+var target;
 /*----- cached element references -----*/ 
 const songLyricEl = document.getElementsByTagName('h3')[0];
-const songTitleEl = document.getElementById('title');
-const songArtistEl = document.getElementById('artist');
+const songInfoEl = document.getElementById('songInfo');
 const listEls = document.querySelector('ol');
 const songAnswers = document.getElementsByTagName('li');
 const ddlEl = document.getElementById('selector');
@@ -38,7 +38,7 @@ const scoreEl = document.getElementById('score');
 const buttonEl = document.querySelector('button');
 const resultEl = document.getElementById('result');
 /*----- event listeners -----*/ 
-document.getElementsByTagName('button')[0].addEventListener('click', handleClick);
+document.getElementsByTagName('button')[0].addEventListener('click', restartClick);
 
 /*----- functions -----*/
 function newInstrumental(song) {
@@ -51,15 +51,11 @@ function newLyric(song) {
     songLyricEl.textContent = lyric;
 };
 
-function newTitle(song) {
-    let title = song.title;
-    songTitleEl.textContent = title;
-};
-
-function newArtist(song) {
+function newSong(song) {
     let artist = song.artist;
-    songArtistEl.textContent = artist;
-};  
+    let title = song.title;
+    songInfoEl.textContent = `${title} - ${artist}`;
+};
 
 function newWrongAnswers(song) {
     let wrongAnswers = song.wrongAnswers;
@@ -88,8 +84,7 @@ function render (array) {
     };
     newInstrumental(nextSong);
     newLyric(nextSong);
-    newTitle(nextSong);
-    newArtist(nextSong);
+    newSong(nextSong);
     newWrongAnswers(nextSong);
     newCorrectAnswer(nextSong);
     newAnswers(answers);
@@ -97,21 +92,20 @@ function render (array) {
 };
 
 function handleClick() {
+    target = event.target.value;
+    count = parseInt(count) + parseInt(1);
     if (count >= 0 && count <= 10) {
     answers.length = 0;
     render(songs);
     };
-    if (count > 0 && count < 10) {
-        buttonEl.textContent = 'Next Question';
-    };
-    if (count === 10) {
-        buttonEl.textContent = 'Final Answer'
-    }
     if (count === 11) {
         checkAnswer();
         listEls.style.display = 'none';
         songLyricEl.textContent = `Thanks for playing, you got ${score} out of 10 correct! Hit the button below to play again.`;
         buttonEl.textContent = 'Play Again';
+        buttonEl.style.display = 'block';
+        songLyricEl.style.margin = '100px auto;';
+        songLyricEl.style.fontSize = '30px';
     }
     if (count === 12) {
         document.location.reload(true);
@@ -119,8 +113,7 @@ function handleClick() {
 };
 
 function checkAnswer() {
-    const selectedEl = ddlEl.selectedIndex;
-    if (selectedEl == x) {
+    if (target == (x + 1)) {
         score += 1;
         scoreEl.innerHTML = `${score}/ 10 Correct`;
     } else {
@@ -132,3 +125,6 @@ function checkAnswer() {
 function counter() {
     count = parseInt(count) + parseInt(1);
 };
+function restartClick() {
+    document.location.reload(true);
+}
