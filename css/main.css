@@ -37,20 +37,15 @@ main {
 
 main h3{
     text-align: center;
+    margin-top: 10%;
     margin-left: 10px;
     margin-right: 10px;
 }
 
 li {
-    margin: 0px 20px 30px 100px;
-    padding-top: 50px;
-    /* margin-left: 100px; */
+    margin: 12% 5% 0% 25%;
     cursor: pointer;
 }
-li:last-child {
-    margin: 0px 20px 0px 100px
-}
-
 
 li:hover {
     color: white;
@@ -88,10 +83,6 @@ button {
 #score {
     grid-area: div4;
 }
-
-/* #btnWrapper {
-    text-align: center;
-} */
 
 #songInfo, #result, #score {
     display: flex;
