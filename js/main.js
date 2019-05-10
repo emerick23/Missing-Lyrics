@@ -116,15 +116,18 @@ function checkAnswer() {
     if (target == (x + 1)) {
         score += 1;
         scoreEl.innerHTML = `${score}/ 10 Correct`;
+        scoreEl.style.color = 'green';
     } else {
         score += 0;
         scoreEl.innerHTML = `${score}/ 10 Correct`;
+        scoreEl.style.color = 'red';
     }
 };
 
 function counter() {
     count = parseInt(count) + parseInt(1);
 };
+
 function restartClick() {
     document.location.reload(true);
 }
